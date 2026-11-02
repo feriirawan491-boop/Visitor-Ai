@@ -173,3 +173,15 @@ npm run check:release
 Pemeriksaan release menjalankan lint, TypeScript, unit, build/budget bundle, dan seluruh browser test dengan server QA sendiri pada port 3100. Pemeriksaan flags membangun dua profil rollback pada port 3110. Hasil ada di `artifacts/` dan manifest aman `public/release-evidence.json`. Jalankan flags dahulu, kemudian release tanpa mengubah source di antaranya. Server lokal pengguna tetap terpisah pada port 3000.
 
 `.env.example` berisi konfigurasi demo. Flag FE-04–FE-07 dibaca saat build, bukan izin pengguna. Mode production dan data source API diblokir karena adapter produksi belum diimplementasikan. Build lokal optimal bukan persetujuan go-live. Lihat [runbook](docs/phase8-rollout-runbook.md) dan [lembar UAT](docs/phase8-uat-signoff.md).
+
+## Build di Vercel
+
+- Root Directory: `frontend`.
+- Framework Preset: `Next.js`.
+- Install Command: `npm ci`.
+- Build Command: `npm run build`.
+- Output Directory: gunakan default framework; jangan isi `.next/static/chunks`.
+
+`npm run build` hanya menjalankan build Next.js. Analisis bundle tidak memakai hook `postbuild` karena lokasi/waktu tersedianya artefak pada hosting dapat berbeda dari lingkungan QA lokal. Jalankan `npm run analyze:bundle` setelah build untuk mengukur bundle secara eksplisit, atau `npm run build:verified` untuk build dan pemeriksaan budget sekaligus. `check:release` dan `check:flags` tetap menggunakan build yang memeriksa budget; artefak hilang/kosong tetap gagal pada pemeriksaan tersebut.
+
+Deployment ini tetap menggunakan adapter demo. Untuk target produksi sebenarnya, persyaratan integrasi dan persetujuan UAT tetap berlaku.

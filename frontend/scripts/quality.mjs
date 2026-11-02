@@ -12,7 +12,7 @@ function run(name, command, args, env = process.env) {
 for (const [name, args] of [['lint', ['run', 'lint']], ['typecheck', ['run', 'typecheck']]]) run(name, npm, args);
 run('unit', process.execPath, ['--test', ...readdirSync('tests/unit').filter(n => n.endsWith('.test.mjs')).map(n => `tests/unit/${n}`)]);
 if (mode === 'code') process.exit(0);
-run('build', npm, ['run', 'build']);
+run('build', npm, ['run', 'build:verified']);
 const server = spawn(npm, ['exec', '--', 'next', 'start', '--hostname', '127.0.0.1', '--port', '3100'], { stdio: 'ignore', detached: process.platform !== 'win32' });
 function stop() { try { if (process.platform !== 'win32') process.kill(-server.pid, 'SIGTERM'); else server.kill('SIGTERM'); } catch { /* Already stopped. */ } }
 process.on('SIGINT', () => { stop(); process.exit(130); });process.on('SIGTERM', () => { stop(); process.exit(143); });

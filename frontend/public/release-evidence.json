@@ -1,36 +1,45 @@
 {
   "schema": 1,
-  "source": "3916ee1338714d670bfe1d94ce71d3d43d790f87e38ef7d21b81b4868b0a2896",
+  "source": "86bfb415fef6b14d5b5ceef0d832df9e19bb00bcffa133e806ee0eee52fb297d",
   "profile": "{\"access\":true,\"analytics\":true,\"provider\":true,\"definitions\":true}",
   "environment": "local-demo",
-  "generatedAt": "2026-11-02T03:29:33.381Z",
+  "generatedAt": "2026-11-02T04:23:11.473Z",
   "checks": {
     "lint": {
-      "status": "not-run"
+      "status": "passed",
+      "durationMs": 2583,
+      "at": "2026-11-02T04:22:09.975Z"
     },
     "typecheck": {
-      "status": "not-run"
+      "status": "passed",
+      "durationMs": 3956,
+      "at": "2026-11-02T04:22:13.943Z"
     },
     "unit": {
-      "status": "not-run"
+      "status": "passed",
+      "durationMs": 647,
+      "at": "2026-11-02T04:22:14.607Z"
     },
     "build": {
       "status": "passed",
       "bundle": {
         "chunks": 20,
-        "gzipBytes": 304992,
+        "gzipBytes": 304993,
         "largestGzipBytes": 71969,
         "totalBudget": 1572864,
         "chunkBudget": 256000,
         "scope": "all-client-js-chunks-not-initial-route"
       },
-      "at": "2026-11-02T03:29:33.380Z"
+      "at": "2026-11-02T04:23:11.472Z"
     },
     "e2e": {
       "status": "not-run"
     },
     "flags": {
-      "status": "not-run"
+      "status": "passed",
+      "durationMs": 24521,
+      "passed": 4,
+      "at": "2026-11-02T04:23:05.325Z"
     }
   }
 }

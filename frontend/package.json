@@ -10,10 +10,11 @@
     "test:e2e": "playwright test",
     "lint": "eslint src --max-warnings=0",
     "test": "node --test tests/unit/*.test.mjs",
-    "postbuild": "node scripts/bundle-report.mjs",
     "check:code": "node scripts/quality.mjs code",
     "check:release": "node scripts/quality.mjs release",
-    "check:flags": "node scripts/check-flags.mjs"
+    "check:flags": "node scripts/check-flags.mjs",
+    "analyze:bundle": "node scripts/bundle-report.mjs",
+    "build:verified": "npm run build && npm run analyze:bundle"
   },
   "dependencies": {
     "@fontsource-variable/plus-jakarta-sans": "^5.3.0",

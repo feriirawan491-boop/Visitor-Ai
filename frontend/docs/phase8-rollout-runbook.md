@@ -2,6 +2,8 @@
 
 Gunakan Node.js 24+, npm ci, kemudian npm run check:flags dan npm run check:release. Kedua perintah mengelola server QA sendiri. Jangan menjalankan keduanya bersamaan. Setelah lulus, jalankan npm run start untuk mengakses build lokal pada port 3000.
 
+Build deployment memakai `npm run build` tanpa hook laporan bundle. QA release dan rollback memakai `npm run build:verified`, yang menjalankan build lalu `npm run analyze:bundle` secara wajib. Analisis eksplisit gagal jika chunk hilang atau kosong; kondisi tersebut tidak dianggap lulus budget. Untuk Vercel, gunakan Root Directory `frontend`, preset Next.js, dan Output Directory default framework.
+
 Manifest public/release-evidence.json hanya berlaku untuk fingerprint source dan profil yang sama. Perubahan source/package lock/config mengharuskan QA ulang. Manifest bukan tanda tangan, autentikasi, ataupun approval produksi. artifacts/ menyimpan laporan lokal; jangan memublikasikan laporan mentah sebagai diagnostik pengguna.
 
 ## Rollback

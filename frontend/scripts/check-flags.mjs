@@ -9,7 +9,7 @@ process.on('SIGINT',()=>{stop();process.exit(130);});process.on('SIGTERM',()=>{s
 try{
   for(const profile of ['features-off','access-off']){
     const env={...base,NEXT_PUBLIC_PHASE4_ACCESS_ENABLED:profile==='access-off'?'false':'true',VISITOR_FLAG_PROFILE:profile,VISITOR_FLAG_REPORT:`artifacts/${profile}.json`};
-    const build=spawnSync(npm,['run','build'],{stdio:'inherit',env});if(build.status!==0)throw new Error('Rollback profile build failed.');
+    const build=spawnSync(npm,['run','build:verified'],{stdio:'inherit',env});if(build.status!==0)throw new Error('Rollback profile build failed.');
     server=spawn(npm,['exec','--','next','start','--hostname','127.0.0.1','--port','3110'],{stdio:'ignore',detached:process.platform!=='win32',env});
     let ready=false;for(let i=0;i<100;i++){try{const r=await fetch('http://127.0.0.1:3110');if(r.ok){ready=true;break;}}catch{/* Starting. */}await new Promise(r=>setTimeout(r,250));}if(!ready)throw new Error('Rollback preview unavailable.');
     const result=spawnSync(npm,['run','test:e2e','--','--config=playwright.flags.config.ts'],{stdio:'inherit',env});if(result.status!==0)throw new Error('Rollback browser verification failed.');
