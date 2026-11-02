@@ -1,0 +1,97 @@
+/* Minimum readable UI type is 12 CSS pixels across all workspaces and breakpoints. */
+:root { --font-size-min: 12px; }
+:where(small,sub,sup) { font-size: var(--font-size-min); }
+.brand small { letter-spacing: .1px; line-height: 1.5; white-space: normal; }
+.brand>span:last-child { min-width: 0; }
+.login-phase { position: static; display: block; margin-top: 25px; letter-spacing: 1px; }
+.login-welcome { letter-spacing: 1px; flex-wrap: wrap; }
+.login-form-footer { flex-wrap: wrap; line-height: 1.8; }
+.login-role-options>button>span { white-space: normal; overflow-wrap: anywhere; }
+.management-workspace-label small { letter-spacing: .2px; line-height: 1.6; }
+.management-workspace-label>div { min-width: 0; }
+.management-nav-label { line-height: 1.7; letter-spacing: .5px; }
+.management-sidebar nav a { gap: 8px; }
+.management-sidebar nav a>svg { flex-shrink: 0; }
+.management-hero-meta { flex-wrap: wrap; }
+.analytics-card-top { align-items: flex-start; }
+.analytics-card>p { min-height: 44px; }
+.analytics-card-icon { flex-shrink: 0; }
+.analytics-card-top>span:first-child { overflow-wrap: anywhere; }
+.analytics-panel-heading { flex-wrap: wrap; }
+.analytics-breakdown>div>div:first-child { flex-wrap: wrap; }
+.analytics-bar-row { grid-template-columns: 61px minmax(0,1fr) 60px; }
+.analytics-health { flex-wrap: wrap; }
+.analytics-health>small { flex-shrink: 1; }
+.analytics-health>div { min-width: 180px; }
+.analytics-filter-fields>label { min-width: 135px; }
+.analytics-filter-fields>button { height: auto; min-height: 38px; padding-block: 9px; }
+.analytics-sort { flex-wrap: wrap; }
+.analytics-dictionary summary { flex-wrap: wrap; line-height: 1.7; }
+.analytics-demo-tools select { height: auto; min-height: 40px; padding-block: 9px; }
+.analytics-pagination { flex-wrap: wrap; }
+.analytics-pagination>div { flex-shrink: 0; }
+.site-context { min-width: 0; }
+.site-context strong { flex-wrap: wrap; row-gap: 5px; }
+.context-right { flex-wrap: wrap; }
+.camera-card-header { flex-wrap: wrap; gap: 12px; }
+.camera-topline { flex-wrap: wrap; }
+.camera-footer { flex-wrap: wrap; gap: 10px; }
+.camera-footer>span { flex-wrap: wrap; white-space: normal; }
+.scene-credit { max-width: calc(100% - 20px); letter-spacing: 0; }
+.panel-heading { flex-wrap: wrap; gap: 12px; }
+.page-footer { flex-wrap: wrap; line-height: 1.8; }
+.traffic-chart text { font: var(--svg-label-size,12px) var(--font-body); }
+@media(max-width:1250px) { .analytics-kpis { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+@media(max-width:1000px) {
+  .management-workspace-label { flex-wrap: wrap; }
+  .management-sidebar nav a { padding-inline: 8px; }
+  .role-main>header { flex-wrap: wrap; height: auto; min-height: 76px; padding-block: 15px; }
+  .login-role-options { gap: 6px; }
+  .login-role-options>button { padding-inline: 8px; }
+}
+@media(max-width:767px) {
+  .login-phase { position: static; margin-top: 20px; }
+  .login-role-options { gap: 7px; }
+  .login-role-options>button { padding-inline: 8px; }
+  .login-welcome { line-height: 1.8; }
+  .role-main>header { min-height: 66px; gap: 13px; }
+  .role-heading h1 { overflow-wrap: anywhere; }
+  .role-scope-summary { grid-template-columns: 1fr; }
+  .role-scope-summary article>strong.role-summary-label { margin-block: 18px 12px; }
+  .analytics-kpis { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .analytics-kpis-three { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .analytics-filter-fields>label { min-width: 0; }
+  .analytics-site-picker summary { gap: 5px; padding-inline: 8px; }
+  .analytics-active-scope { line-height: 1.8; }
+  .analytics-health>small { flex-direction: column; align-items: flex-start; gap: 5px; }
+  .analytics-health>small>span { margin-left: 0; }
+  .analytics-panel-heading>div { min-width: 0; }
+  .analytics-card-top { flex-wrap: wrap-reverse; gap: 10px; }
+  .analytics-card-top>span:first-child { width: 100%; min-height: 36px; }
+  .analytics-card>strong { margin-top: 14px; }
+  .analytics-card>p { min-height: 66px; }
+  .metric-definition summary { align-items: flex-start; line-height: 1.7; }
+  .metric-definition summary svg { flex-shrink: 0; margin-top: 3px; }
+  .chart-legend small { line-height: 1.8; }
+  .chart-view-tabs button { padding-inline: 8px; }
+  .analytics-breakdown>div { min-width: 0; }
+  .duration-distribution>div { grid-template-columns: 88px minmax(0,1fr) 36px; gap: 8px; }
+  .duration-distribution>div>small { grid-column: 3; }
+  .analytics-session-quality>span { flex-wrap: wrap; line-height: 1.8; }
+  .analytics-notice>p { min-width: 0; }
+  .analytics-report-scope>div { min-width: 0; }
+  .management-heading .eyebrow { flex-wrap: wrap; letter-spacing: 1px; }
+  .management-heading h1 { font-size: 43px; }
+  .management-sidebar nav a { padding-inline: 11px; }
+  .site-switcher select { max-width: 190px; width: 190px; }
+  .role-select select { width: 155px; max-width: 155px; }
+  .context-right { gap: 12px; }
+  .site-id { border-left: 0; padding-left: 0; }
+  .camera-status { white-space: normal; }
+  .camera-legend { align-items: flex-start; }
+  .reference-stats .stat-top { min-height: 46px; }
+}
+/* Larger labels may make navigation taller than a short desktop viewport. */
+.sidebar { overflow-y: auto; }
+.sidebar>.brand,.role-sidebar>.brand { flex-shrink: 0; }
+@media(min-width:768px) { .role-sidebar { overflow-y: auto; } }

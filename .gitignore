@@ -1,0 +1,13 @@
+.DS_Store
+node_modules/
+.next/
+.next-flags/
+artifacts/
+test-results/
+playwright-report/
+*.tsbuildinfo
+.env*
+!.env.example
+*.pem
+*.key
+.aws/

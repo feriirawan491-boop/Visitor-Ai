@@ -1,0 +1,2 @@
+import { defineConfig } from '@playwright/test';
+export default defineConfig({testDir:'./tests/flags',testMatch:process.env.VISITOR_FLAG_PROFILE==='access-off'?'access.test.ts':'features.test.ts',workers:1,reporter:[['list'],['json',{outputFile:process.env.VISITOR_FLAG_REPORT??'artifacts/flags.json'}]],use:{baseURL:'http://127.0.0.1:3110',browserName:'chromium',launchOptions:{executablePath:process.env.VISITOR_CHROME_PATH??'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'}}});
